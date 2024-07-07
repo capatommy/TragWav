@@ -12,6 +12,7 @@ function playTrack(track, location) {
     
     currentAudio.play().then(() => {
         document.getElementById('currentTrack').textContent = `Playing: ${location}`;
+        document.getElementById('playButton').disabled = true;
         document.getElementById('pauseButton').disabled = false;
     }).catch(error => {
         console.error("Error playing the audio file:", error);
@@ -19,6 +20,7 @@ function playTrack(track, location) {
 
     currentAudio.onended = () => {
         document.getElementById('currentTrack').textContent = "No track playing";
+        document.getElementById('playButton').disabled = true;
         document.getElementById('pauseButton').disabled = true;
     };
 }
@@ -26,15 +28,15 @@ function playTrack(track, location) {
 function pauseTrack() {
     if (currentAudio && !currentAudio.paused) {
         currentAudio.pause();
-        document.getElementById('pauseButton').textContent = "Play";
-        document.getElementById('pauseButton').onclick = resumeTrack;
+        document.getElementById('playButton').disabled = false;
+        document.getElementById('pauseButton').disabled = true;
     }
 }
 
 function resumeTrack() {
     if (currentAudio && currentAudio.paused) {
         currentAudio.play();
-        document.getElementById('pauseButton').textContent = "Pause";
-        document.getElementById('pauseButton').onclick = pauseTrack;
+        document.getElementById('playButton').disabled = true;
+        document.getElementById('pauseButton').disabled = false;
     }
 }

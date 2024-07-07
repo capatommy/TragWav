@@ -60,6 +60,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin: 0 5px;
         }
         .control-bar button:hover {
             background-color: rgba(255, 255, 255, 1);
@@ -79,6 +80,7 @@
     </div>
     <div class="control-bar" id="controlBar">
         <p id="currentTrack">No track playing</p>
+        <button id="playButton" onclick="resumeTrack()" disabled>Play</button>
         <button id="pauseButton" onclick="pauseTrack()" disabled>Pause</button>
     </div>
     <script src="script.js"></script>
