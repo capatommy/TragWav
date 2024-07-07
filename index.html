@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('assets/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .map {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            height: 90%;
+            max-height: 800px;
+            margin: auto;
+        }
+        .location-button {
+            position: absolute;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .location-button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        @media (max-width: 600px) {
+            .location-button {
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="map">
+        <button class="location-button" style="top: 20%; left: 30%;" onclick="playTrack('track1.mp3')">Location 1</button>
+        <button class="location-button" style="top: 50%; left: 50%;" onclick="playTrack('track2.mp3')">Location 2</button>
+        <button class="location-button" style="top: 70%; left: 80%;" onclick="playTrack('track3.mp3')">Location 3</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
