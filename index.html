@@ -13,6 +13,7 @@
             background-size: cover;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -20,8 +21,8 @@
             position: relative;
             width: 90%;
             max-width: 600px;
-            height: 90%;
-            max-height: 800px;
+            height: 80%;
+            max-height: 700px;
             margin: auto;
         }
         .location-button {
@@ -36,6 +37,33 @@
         .location-button:hover {
             background-color: rgba(255, 255, 255, 1);
         }
+        .control-bar {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .control-bar p {
+            margin: 0;
+            padding: 0 10px;
+        }
+        .control-bar button {
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .control-bar button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
         @media (max-width: 600px) {
             .location-button {
                 padding: 5px 10px;
@@ -45,9 +73,13 @@
 </head>
 <body>
     <div class="map">
-        <button class="location-button" style="top: 20%; left: 30%;" onclick="playTrack('track1.wav')">Location 1</button>
-        <button class="location-button" style="top: 50%; left: 50%;" onclick="playTrack('track2.wav')">Location 2</button>
-        <button class="location-button" style="top: 70%; left: 80%;" onclick="playTrack('track3.wav')">Location 3</button>
+        <button class="location-button" style="top: 20%; left: 30%;" onclick="playTrack('track1.wav', 'Location 1')">Location 1</button>
+        <button class="location-button" style="top: 50%; left: 50%;" onclick="playTrack('track2.wav', 'Location 2')">Location 2</button>
+        <button class="location-button" style="top: 70%; left: 80%;" onclick="playTrack('track3.wav', 'Location 3')">Location 3</button>
+    </div>
+    <div class="control-bar" id="controlBar">
+        <p id="currentTrack">No track playing</p>
+        <button id="pauseButton" onclick="pauseTrack()" disabled>Pause</button>
     </div>
     <script src="script.js"></script>
 </body>
